@@ -28,5 +28,3 @@ pip install dotenv
 版本号：<u>v1.5.0</u>
 
 关于API的详细文档请参阅 [使用指南](https://dev.qweather.com/docs/start/)。
-
-邮件联系：[3152382634@qq.com](mailto:3152382634@qq.com)
