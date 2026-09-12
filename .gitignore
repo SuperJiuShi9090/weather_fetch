@@ -4,5 +4,5 @@
 __pycache__
 *.pyc
 更新日志.txt
-.log
+*.log
 QWeather-Icons-1.8.0
