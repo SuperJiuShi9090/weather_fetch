@@ -1,0 +1,8 @@
+.env
+.idea
+.DS_Store
+__pycache__
+*.pyc
+更新日志.txt
+.log
+QWeather-Icons-1.8.0
