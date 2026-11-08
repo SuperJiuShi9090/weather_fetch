@@ -5,28 +5,27 @@ from tools import fetch_json
 
 logger = logging.getLogger(__name__)
 
-Host = Config.host
+_host = Config.host
+_headers = Config.headers
 
 #返回查询地点的官名，locationID和经纬度
 async def geo(
         city: str,
-        host: str | None = Host,
         number: int = 10,
         timeout: int = 5
 ) -> dict | list:
     """
     返回查询地点的官名，locationID和经纬度
     :param city: 城市名称
-    :param host: 请求头，从和风天气控制台获取
     :param number: 返回的结果数量，默认10条。范围：1~20
     :param timeout: 连接超时的判定时间
     :return: 返回列表（包含国家到城市拼接的完整名称、城市ID、城市精度和城市纬度或错误信息）
     或原json
     """
-    url = f"{host}geo/v2/city/lookup?location={city}&lang=zh&number={number}"
+    url = f"{_host}geo/v2/city/lookup?location={city}&lang=zh&number={number}"
 
     logger.info(f"开始获取城市：{city} 的信息")
-    data: dict = await fetch_json(url=url, timeout=timeout)
+    data: dict = await fetch_json(url=url, timeout=timeout, headers=_headers)
 
     if data.get("code") != "200" or not data.get("location"):
         err = "error"
